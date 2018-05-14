@@ -315,6 +315,7 @@ extension ViewController2 : TVIRoomDelegate {
         CallManager.shared.room = nil
         self.showRoomUI(inRoom: false)
         CallManager.shared.callKitCompletionHandler = nil
+        CallManager.shared.isCallInProgress = false
     }
     
     func room(_ room: TVIRoom, didFailToConnectWithError error: Error) {
