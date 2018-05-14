@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController1: UIViewController {
 
+    var roomViewController: ViewController2?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,6 +47,11 @@ class ViewController1: UIViewController {
     func navigateToVideoCall(isNewCall : Bool)  {
         
         CallManager.shared.isCallInProgress = !isNewCall;
-        CallManager.shared.pushViewController(from: self.navigationController!);
+        if (isNewCall) {
+            roomViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController2") as? ViewController2;
+            self.navigationController!.pushViewController(roomViewController!, animated: true);
+        } else {
+            self.navigationController?.pushViewController(self.roomViewController!, animated: true)
+        }
     }
 }

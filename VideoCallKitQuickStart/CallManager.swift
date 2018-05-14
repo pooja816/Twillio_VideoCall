@@ -43,11 +43,4 @@ class CallManager: NSObject {
         callKitProvider = CXProvider(configuration: configuration)
         callKitCallController = CXCallController()
     }
-    
-    func pushViewController(from navController : UINavigationController)  {
-        
-        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController2");
-        navController.pushViewController(vc, animated: true);
-    }
-    
 }
